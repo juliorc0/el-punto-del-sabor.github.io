@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>El Punto del Sabor</title>
+
+    <style>
+        
+
+.logo-image {
+            width: 250px;
+            position: absolute; /* Se establece la posición absoluta para la imagen */
+            top: 220px; /* Ajuste de la posición desde la parte superior */
+            left: 170px; /* Ajuste de la posición desde la izquierda */
+        }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(80%);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+        /* Estilos generales */
+        body {
+            background-image: url('f.png');
+            display: flex;
+            justify-content: right;
+            align-items: RIGHT;
+            height: 100vh;
+            margin: 10;
+            background-color: #000000;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos para la galería */
+        :root {
+    --gallery-max-width: 900px;
+    --gallery-margin-top: 77px;
+    --gallery-margin-bottom: 77px;
+    --gallery-item-width: 150px;
+    --gallery-item-height: 150px;
+    --gallery-item-border-radius: 20px;
+    --overlay-background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: var(--gallery-max-width);
+    margin-top: var(--gallery-margin-top);
+}
+
+.gallery-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--gallery-margin-bottom);
+}
+
+.gallery-item {
+    position: relative;
+    margin: 5px;
+    padding: 10px;
+    width: var(--gallery-item-width);
+    height: var(--gallery-item-height);
+    border: 5px solid #ffffff;
+    border-radius: var(--gallery-item-border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    transform: scale(0.999);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-color: var(--overlay-background-color);
+    z-index: 7;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 18;
+        transform: translateY(70);
+    }
+}
+
+.gallery-item {
+    animation: fadeIn 0.75s ease forwards;
+}
+
+
+        /* Estilo para el campo de descripción */
+        .description-input {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        /* Estilos de la animación de carga */
+        .toggle-scene {
+            overflow: visible !important;
+            height: 50vmin;
+            position: absolute;
+        }
+
+        .toggle-scene__cord {
+            stroke: var(--cord);
+            cursor: move;
+        }
+
+        .loader {
+            width: 112px;
+            height: 112px;
+        }
+
+        .button {
+  color: white;
+  background-color: #222;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  text-align: center;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #222;
+  border: 2px solid #222;
+}
+
+.button:hover svg {
+  fill: #222;
+}
+
+.button svg {
+  display: inline;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+  color: white;
+}
+
+.button:hover svg {
+  animation: spin_357 0.5s linear;
+}
+
+@keyframes spin_357 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotatey(360deg);
+  }
+}
+
+
+    </style>
+</head>
+
+<body>
+    <img src="logo.png" class="logo-image">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a href="INT.HTML">
+        <button type="button" class="button">
+          <svg viewBox="0 0 16 16" class="bi bi-coin" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"></path>
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+            <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
+          </svg>
+          HAGA SU PEDIDO
+        </button>
+      </a>
+      <br>
+      <br>
+      <br>
+
+    <div class="gallery">
+        <div class="gallery-row">
+            <div class="gallery-item" data-caracteristicas="Descripción de la imagen 1">
+                <img src="1.jpg" alt="Imagen 1">
+                <div class="overlay">Descripción de la imagen 1</div>
+                <input type="text" class="description-input" placeholder="$2.000">
+            </div>
+            <div class="gallery-item" data-caracteristicas="kkkkkkk">
+                <img src="0.avif" alt="Imagen 0">
+                <div class="overlay">Descripción de la imagen 2</div>
+                <input type="text" class="description-input" placeholder="$2.500">
+            </div>
+            <div class="gallery-item" data-caracteristicas="llllll">
+                <img src="2.jpg" alt="Imagen 3">
+                <div class="overlay">Descripción de la imagen 3</div>
+                <input type="text" class="description-input" placeholder="$800">
+            </div>
+            <div class="gallery-item" data-caracteristicas="Descripción de la imagen 4">
+                <img src="3.jpg" alt="Imagen 4">
+                <div class="overlay">Descripción de la imagen 4</div>
+                <input type="text" class="description-input" placeholder="$800"> 
+            </div>
+        </div>
+
+
+       
+  
+          
+        <div class="gallery-row">
+            <div class="gallery-item" data-caracteristicas="Descripción de la imagen 5">
+                <img src="4.jpg" alt="Imagen 5">
+                <div class="overlay">Descripción de la imagen 5</div>
+                <input type="text" class="description-input" placeholder="$500">
+            </div>
+            <div class="gallery-item" data-caracteristicas="Descripción de la imagen 6">
+                <img src="5.jpg" alt="Imagen 6">
+                <div class="overlay">Descripción de la imagen 6</div>
+                <input type="text" class="description-input" placeholder="$1.200">
+            </div>
+            <div class="gallery-item" data-caracteristicas="Descripción de la imagen 7">
+                <img src="6.jpg" alt="Imagen 7">
+                <div class="overlay">Descripción de la imagen 7</div>
+                <input type="text" class="description-input" placeholder="$1.200">
+            </div>
+            <div class="gallery-item" data-caracteristicas="Descripción de la imagen 8">
+                <img src="7.jpg" alt="Imagen 8">
+                <div class="overlay">Descripción de la imagen 8</div>
+                <input type="text" class="description-input" placeholder="$200">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            const overlay = item.querySelector('.overlay');
+            const descriptionInput = item.querySelector('.description-input');
+            item.addEventListener('mouseover', () => {
+                overlay.style.opacity = '1';
+                overlay.style.transition = 'opacity 0.3s';
+                item.style.transform = 'scale(1.01)';
+                item.style.transition = 'transform 0.3s';
+            });
+            item.addEventListener('mouseout', () => {
+                overlay.style.opacity = '0';
+                item.style.transform = 'scale(1)';
+            });
+            descriptionInput.addEventListener('input', (event) => {
+                const description = event.target.value;
+                overlay.innerHTML = `<b>${description}</b>`;
+            });
+        });
+    </script>
+
+
+    
+</body>
+
+</html>
